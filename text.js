@@ -1,21 +1,19 @@
-$(document).ready(function () {
+$(document).ready(function() {
     var myRules = {
-        myNumber:
-            {
-                required: true,
-                digits: true,
-                min: 1,
-                max: 1000
-            }
+        myNumber: {
+            required: true,
+            digits: true,
+            min: 1,
+            max: 1000
+        }
     };
     var myMessages = {
-        myNumber:
-            {
-                required: "Must fill in number",
-                digits: "Only whole numbers",
-                min: "Must be 1 - 1000",
-                max: "Must be 1 - 1000"
-            }
+        myNumber: {
+            required: "Must fill in number",
+            digits: "Only whole numbers",
+            min: "Must be 1 - 1000",
+            max: "Must be 1 - 1000"
+        }
     };
 
     $("#loopTestForm").validate({
@@ -42,6 +40,17 @@ function runLoops() {
         "do-while-loop" ==>  runDoWhileLoop()
     */
 
+    switch (selectedLoop) {
+        case "for-loop":
+            runForLoop();
+            break;
+        case "while-loop":
+            runWhileLoop();
+            break;
+        case "do-while-loop":
+            runDoWhileLoop();
+            break;
+    }
 
 
 
@@ -60,6 +69,9 @@ function runWhileLoop() {
 
         (Or for a challenge, concatenate the first "number" letters of the alphabet!)
     */
+    while (output.length < number) {
+        output += "A";
+    }
 
 
     $("#while-result").text(output);
@@ -74,6 +86,9 @@ function runForLoop() {
         Use a for loop to add the numbers 1 through "number"
         into the variable "sum".
     */
+    for (var i = 0; i < number; i++) {
+        sum += i;
+    }
 
     $("#for-result").text(sum);
 }
@@ -82,12 +97,17 @@ function runForLoop() {
 function runDoWhileLoop() {
     var number = parseInt($("#myNumber").val());
     var output = "";
+    var num = 1;
 
     /*
         Use a do-while loop to concatenate the numbers 1 through
         "number" to the string "output". For example, if "number"
         is 5, then output should be "12345".
     */
+    do {
+        output += num;
+        num++;
+    } while (output.length < number);
 
 
     $("#do-while-result").text(output);

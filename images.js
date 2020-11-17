@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
 
     $("button").click(runLoops);
 
@@ -15,6 +15,9 @@ $(document).ready(function () {
         $("#do-while-num").text(num - 1);
         $("#for-num").text(num);
 
+        // loop control variable
+        var lcv = 0;
+
 
         /*
          Create a while loop that runs "num + 1" times.
@@ -22,7 +25,10 @@ $(document).ready(function () {
          The body of the loop should contain the statement:
          addImageToDiv("#while-loop");
         */
-
+        while (lcv < num + 1) {
+            addImageToDiv("#while-loop");
+            lcv++;
+        }
 
 
 
@@ -33,6 +39,11 @@ $(document).ready(function () {
          The body of the loop should contain the statement:
          addImageToDiv("#do-while-loop");
         */
+        lcv = 0;
+        do {
+            addImageToDiv("#do-while-loop");
+            lcv++;
+        } while (lcv < num - 1)
 
 
 
@@ -44,6 +55,10 @@ $(document).ready(function () {
          The body of the loop should contain the statement:
          addImageToDiv("#for-loop");
         */
+
+        for (lcv = 0; lcv < num; lcv++) {
+            addImageToDiv("#for-loop");
+        }
 
 
 
